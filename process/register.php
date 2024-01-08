@@ -1,5 +1,5 @@
 <?php
-include ('conexion/conexion.php');
+include ('../conexion/conexion.php');
 
 function validate_user($correo){
     global $conn;
@@ -41,6 +41,6 @@ if (isset($_POST['nombre'])) {
         register_user($nombre, $correo, $password);
     }
 
-    header('Location: https://arthecnology.com/control/login.php');
+    header('Location: ../login.php');
 }
 ?>
