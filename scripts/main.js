@@ -1,4 +1,39 @@
 const ctx = document.getElementById('myChart');
+const dateAndTime = document.getElementById('date-and-time');
+const btnRegistrar = document.getElementById('btn-registrar');
+const btnEditar = document.getElementById('btn-editar');
+const btnEliminar = document.getElementById('btn-eliminar');
+const placeHolderMeta = document.getElementById('placeholder-meta');
+const meta = document.getElementById('meta-registrada');
+
+const modaltitle = document.getElementById('exampleModalLabel');
+
+if (meta.innerHTML.trim() === '') {
+    placeHolderMeta.style.display = 'block';
+} else {
+    placeHolderMeta.style.display = 'none';
+}
+
+btnRegistrar.addEventListener('click', function(){
+    modaltitle.innerText = "Crear nueva meta";
+});
+
+btnEditar.addEventListener('click', function(){
+    modaltitle.innerText = "Editar datos de la meta";
+});
+
+btnEliminar.addEventListener('click', function(){
+    modaltitle.innerText = "Eliminar esta meta";
+});
+
+
+function getDateAndTime() {
+    let fechaHora = new Date();
+    let fecha = fechaHora.toLocaleDateString();
+    let hora = fechaHora.toLocaleTimeString();
+    dateAndTime.innerText = fecha + ' ' + hora;
+
+}
 
 new Chart(ctx, {
     type: 'doughnut',
@@ -23,3 +58,5 @@ new Chart(ctx, {
         }
     }
 });
+
+setInterval(getDateAndTime, 1000)

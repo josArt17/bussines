@@ -17,6 +17,13 @@ if (!isset($_SESSION['correo'])) {
     <title>Inicio</title>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500;700&display=swap');
+
+    #date-and-time{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+    }
+
     .cont-chart {
         width: 400px;
     }
@@ -44,15 +51,53 @@ if (!isset($_SESSION['correo'])) {
       </ul>
     </header>
 </div>
+<section class="d-flex flex-wrap justify-content-center py-3 mb-4">
+    <div>
+        <p id="date-and-time"></p>
+    </div>
+</section>
 <section class="sec-metas">
     <div>
         <h2>Mi meta</h2>
+        <div class="cont-meta">
+            <div class="placeholder-glow" id="placeholder-meta">
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-12"></span>
+            </div>
+            <div id="meta-registrada">
+
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" id="btn-registrar" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar meta</button>
+                <button type="button" class="btn btn-danger" id="btn-eliminar" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar meta</button>
+                <button type="button" class="btn btn-warning" id="btn-editar" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar meta</button>
+            </div>
+        </div>
     </div>
     <div class="cont-chart">
         <canvas id="myChart"></canvas>
     </div>
 </section>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
