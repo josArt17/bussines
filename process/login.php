@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 include ('../conexion/conexion.php');
 
@@ -16,14 +16,16 @@ function validate_user($correo){
 }
 
 if (isset($_POST['correo'])) {
+
     $correo = $_POST['correo'];
     $password = $_POST['password'];
 
     $validate = validate_user($correo);
+
     if ($validate != false) {
         $_SESSION['correo'] = $correo;
-        
-        header('Location: index.php');
+
+        header('Location: ../index.php');
     }
 }
 
