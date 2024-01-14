@@ -2,9 +2,7 @@
 
 date_default_timezone_set('America/Mexico_City');
 
-if (!isset($_SESSION['correo'])) {
-    header('Location: login.php');
-}
+include 'process/session.php';
 
 ?>
 <!DOCTYPE html>
@@ -88,13 +86,36 @@ if (!isset($_SESSION['correo'])) {
         <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <form method="POST" id="form-meta">
+        <div class="modal-body">
+
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Mi meta" name="nombre-meta">
+            <label for="floatingInput">Nombre de la meta</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="date" class="form-control" id="floatingInput" placeholder="Mi meta" name="inicio-meta">
+            <label for="floatingInput">Inicio de la meta</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="date" class="form-control" id="floatingInput" placeholder="Mi meta" name="fin-meta">
+            <label for="floatingInput">Fin de la meta</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="Mi meta" name="monto-meta">
+            <label for="floatingInput">Monto de mi meta</label>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+      </form>
     </div>
   </div>
 </div>

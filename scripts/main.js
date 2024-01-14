@@ -7,15 +7,19 @@ const placeHolderMeta = document.getElementById('placeholder-meta');
 const meta = document.getElementById('meta-registrada');
 
 const modaltitle = document.getElementById('exampleModalLabel');
+const formMeta = document.getElementById('form-meta');
 
 if (meta.innerHTML.trim() === '') {
     placeHolderMeta.style.display = 'block';
+    btnEditar.style.display = 'none';
+    btnEliminar.style.display = 'none';
 } else {
     placeHolderMeta.style.display = 'none';
 }
 
 btnRegistrar.addEventListener('click', function(){
     modaltitle.innerText = "Crear nueva meta";
+    formMeta.setAttribute('action', 'https://arthecnology.com/control/process/meta.php');
 });
 
 btnEditar.addEventListener('click', function(){
