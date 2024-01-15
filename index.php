@@ -31,6 +31,14 @@ include 'process/session.php';
         justify-content: space-around;
         align-items: center;
     }
+
+    .meta-data {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 250px;
+    }
 </style>
 <body>
 <div class="container">

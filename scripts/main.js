@@ -9,13 +9,46 @@ const meta = document.getElementById('meta-registrada');
 const modaltitle = document.getElementById('exampleModalLabel');
 const formMeta = document.getElementById('form-meta');
 
-if (meta.innerHTML.trim() === '') {
-    placeHolderMeta.style.display = 'block';
-    btnEditar.style.display = 'none';
-    btnEliminar.style.display = 'none';
-} else {
-    placeHolderMeta.style.display = 'none';
+async function get_data_meta(contMeta) {
+    const URL = 'https://arthecnology.com/control/process/API/data_meta.php';
+
+    try {
+        const response = await fetch(URL);
+
+        if (!response.ok) {
+            throw new Error(`Error al obtener datos: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        data.forEach(meta => {
+            let nombreMeta = meta.meta_nombre;
+            let fechaInicio = meta.meta_inicio;
+            let fechaFin = meta.meta_fin;
+
+            let containerMeta = document.createElement('div');
+            containerMeta.classList.add('meta-data');
+
+            let tituloMeta = document.createElement('h4');
+            tituloMeta.innerText = nombreMeta;
+
+            let spanInicio = document.createElement('span');
+            spanInicio.innerText = fechaInicio;
+
+            let spanFin = document.createElement('span');
+            spanFin.innerText = fechaFin;
+
+            containerMeta.appendChild(tituloMeta);
+            containerMeta.appendChild(spanInicio);
+            containerMeta.appendChild(spanFin);
+            contMeta.appendChild(containerMeta);
+            placeHolderMeta.style.display = 'none';
+        })
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+    }
 }
+
+get_data_meta(meta);
 
 btnRegistrar.addEventListener('click', function(){
     modaltitle.innerText = "Crear nueva meta";

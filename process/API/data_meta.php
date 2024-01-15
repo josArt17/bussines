@@ -13,7 +13,8 @@ function get_data($usuario){
         ":usuario" => $usuario
     ));
     $data = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $data;
+    $result = json_encode($data);
+    return $result;
 }
 
 function get_user($correo_usuario){
