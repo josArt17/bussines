@@ -32,12 +32,29 @@ include 'process/session.php';
         align-items: center;
     }
 
+    .sec-metas div h2 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    #meta-registrada {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .meta-data {
+      text-align: center;
       display: flex;
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
       width: 250px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      box-shadow: -6px 14px 4px 1px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
     }
 </style>
 <body>
@@ -64,7 +81,7 @@ include 'process/session.php';
 </section>
 <section class="sec-metas">
     <div>
-        <h2>Mi meta</h2>
+        <h2>Metas en progreso</h2>
         <div class="cont-meta">
             <div class="placeholder-glow" id="placeholder-meta">
                 <span class="placeholder col-12"></span>

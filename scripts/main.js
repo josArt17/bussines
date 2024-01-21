@@ -9,6 +9,8 @@ const meta = document.getElementById('meta-registrada');
 const modaltitle = document.getElementById('exampleModalLabel');
 const formMeta = document.getElementById('form-meta');
 
+const labelMeta = [];
+
 async function get_data_meta(contMeta) {
     const URL = 'https://arthecnology.com/control/process/API/data_meta.php';
 
@@ -24,6 +26,8 @@ async function get_data_meta(contMeta) {
             let nombreMeta = meta.meta_nombre;
             let fechaInicio = meta.meta_inicio;
             let fechaFin = meta.meta_fin;
+
+            labelMeta.push(nombreMeta);
 
             let containerMeta = document.createElement('div');
             containerMeta.classList.add('meta-data');
@@ -73,9 +77,9 @@ function getDateAndTime() {
 }
 
 new Chart(ctx, {
-    type: 'doughnut',
+    type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: [labelMeta],
       datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
@@ -83,6 +87,14 @@ new Chart(ctx, {
       }]
     },
     options: {
+        animation: {
+            duration: 2000,
+            onProgress: function(context) {
+                if (context.initial) {
+                    initProgress.value = fechaFin / fechaInicio;
+                }
+            }
+        },
         responsive: true,
         plugins: {
             legend: {
